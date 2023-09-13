@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class OfertaValidacion {
-    private Util util = new Util();
+    private Util validacion = new Util();
 
     public Boolean validarTitulo(String titulo) throws Exception{
         if(titulo.length()>20){
@@ -17,36 +17,20 @@ public class OfertaValidacion {
 
     }
     public Boolean validarFechaInicioFinal(LocalDate fechaInicio, LocalDate fechaFinal) throws Exception{
-        if(fechaInicio == null || fechaFinal == null){
-            throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
-        }
-
         if(fechaFinal.isBefore(fechaInicio)){
-            throw new Exception(Mensaje.FECHA_INICIO.getMensaje());
+           return true;
         }
-        return true;
+        throw new Exception(Mensaje.FECHA_INICIO.getMensaje());
     }
     public Boolean validarFormatoFechaInicio(String fechaInicio) throws Exception{
-
-        String expresionRegularFormatoFecha = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
-        if(fechaInicio == null){
+        if(!validacion.buscarCoincidencia(fechaInicio,"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$")){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
-
-        if(!util.buscarCoincidencia(fechaInicio, expresionRegularFormatoFecha)){
-            throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
-        }
-
         return true;
     }
     public Boolean validarFormatoFechaFin(String fechaFinal) throws Exception{
-        String expresionRegularFormatoFecha = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
-        if(fechaFinal == null){
+        if(!validacion.buscarCoincidencia(fechaFinal,"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$")){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
-        }
-
-        if(!util.buscarCoincidencia(fechaFinal, expresionRegularFormatoFecha)){
-            throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
         }
 
         return true;

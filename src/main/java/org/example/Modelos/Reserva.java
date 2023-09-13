@@ -74,7 +74,7 @@ public class Reserva {
 
     public void setFechaReserva(String fechaReserva) {
         try {
-            this.reservaValidacion.validarFormatoFecha(fechaReserva);
+            this.reservaValidacion.ValidarFechasReserva(fechaReserva);
             DateTimeFormatter formatoDeseado = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate fechaReservaFormateada = LocalDate.parse(fechaReserva,formatoDeseado);
             this.fechaReserva = fechaReservaFormateada;

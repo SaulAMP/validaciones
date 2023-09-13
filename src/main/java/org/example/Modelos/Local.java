@@ -14,12 +14,13 @@ public class Local {
     public Local() {
     }
 
-    public Local(Integer id, String nit, String nombre, Integer ubicacion, String descripcion) {
+    public Local(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, LocalValidacion localValidacion) {
         this.id = id;
         this.nit = nit;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
+        this.localValidacion = localValidacion;
     }
 
     @Override
@@ -37,10 +38,7 @@ public class Local {
         return id;
     }
 
-    public void setId(Integer id) {
-
-        this.id = id;
-    }
+    public void setId(Integer id) { this.id = id;}
 
     public String getNit() {
         return nit;

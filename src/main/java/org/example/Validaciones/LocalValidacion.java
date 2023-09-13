@@ -4,10 +4,9 @@ import org.example.Utilidades.Mensaje;
 import org.example.Utilidades.Util;
 
 public class LocalValidacion {
-    private Util util = new Util();
+    private Util validacion = new Util();
     public Boolean validarNit(String nit) throws Exception{
-        String regexNumeros = "^[0-9]+$";
-        if(!util.buscarCoincidencia(nit,regexNumeros)){
+        if(!validacion.buscarCoincidencia(nit,"^[0-9]+$")){
             throw new Exception(Mensaje.FORMATO_NIT.getMensaje());
         }
         if(nit.length()!=10){

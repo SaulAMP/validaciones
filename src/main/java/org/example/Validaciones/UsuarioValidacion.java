@@ -7,13 +7,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UsuarioValidacion {
-    private Util util = new Util();
+    private Util validacion = new Util();
     //metodos ordinarios
     public Boolean validarNombre(String names) throws Exception{
         //expresion regular
-        String regexLetras = "^[a-zA-Z]+$";
-
-        if (!util.buscarCoincidencia(names,regexLetras)){
+        if (!validacion.buscarCoincidencia(names,"^[a-zA-Z]+$")){
             throw new Exception(Mensaje.FORMATO_NOMBRE.getMensaje());
         }
         if(names.length()<10){
@@ -24,14 +22,12 @@ public class UsuarioValidacion {
     public Boolean validarUbicacion(Integer ubicacion) throws Exception{
         if (ubicacion == 1 || ubicacion == 2 || ubicacion == 3 || ubicacion ==4){
             return true;
-        }else {
-            throw new Exception(Mensaje.FORMATO_UBICACION.getMensaje());
         }
-
+        throw new Exception(Mensaje.FORMATO_UBICACION.getMensaje());
     }
+
     public Boolean validarCorreo(String correo) throws Exception{
-        String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-        if(!util.buscarCoincidencia(correo, regexEmail)){
+        if(!validacion.buscarCoincidencia(correo, "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
             throw new Exception(Mensaje.FORMATO_CORREO.getMensaje());
         }
         return true;

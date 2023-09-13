@@ -4,7 +4,7 @@ public enum Mensaje {
     FORMATO_NOMBRE("Revise el formato del nombre"),
     LONGITUD_NOMBRE("El nombre debe ser mayor a 10 digitos"),
     FORMATO_UBICACION("La ubicacion debe ser un numero"),
-    FORMATO_NIT("El NIT debe contener ser solo numeros"),
+    FORMATO_NIT("El NIT debe contener solo numeros"),
     LONGITUD_NIT("El nombre de la empresa no puede sobrepasar los 30 caracteres"),
     TAMANIO_NIT("El campo nit debe tener  10 dígitos"),
     FORMATO_TITULO_OFERTA("El titulo de la oferta no puede sobrepasar los 20 caracteres"),
